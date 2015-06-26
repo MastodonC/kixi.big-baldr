@@ -4,6 +4,7 @@
   :license {:name "Eclipse Public License"
             :url "http://www.eclipse.org/legal/epl-v10.html"}
   :java-source-paths ["java/src" "java/test"]
+  :javac-options ["-source" "1.7" "-target" "1.7"]
   :dependencies [[baldr "0.1.1"]]
   :profiles {:dev
              {:dependencies [[criterium "0.4.3"]
