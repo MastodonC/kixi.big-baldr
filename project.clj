@@ -19,4 +19,16 @@
                [org.apache.spark/spark-streaming-flume_2.10 "1.3.0"]
                [org.apache.spark/spark-sql_2.10 "1.3.0"]]}
              :uberjar
-             {:aot :all}})
+             {:aot :all}}
+   :plugins [[s3-wagon-private "1.1.2"]]
+   ;; You need to arrange for the environment variables:                                                                                                               
+   ;;   MC_AWS_USERNAME   to be your AWS access key                                                                                                                    
+   ;;   MC_AWS_PASSPHRASE to be your AWS secret key                                                                                                                    
+   ;; there is a sample.lein-credentials file which you can fill in and                                                                                                
+   ;; source from your shell                                                                                                                                           
+   :repositories [["releases" {:url "s3p://mc-maven-repo/releases"
+                               :username :env/mc_aws_username
+                               :passphrase :env/mc_aws_passphrase}]
+                  ["snapshots" {:url "s3p://mc-maven-repo/snapshots"
+                                :username :env/mc_aws_username
+                                :passphrase :env/mc_aws_passphrase}]])
